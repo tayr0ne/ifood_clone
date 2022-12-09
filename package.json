@@ -1,0 +1,22 @@
+{
+  "name": "ifood_clone",
+  "version": "1.0.0",
+  "description": "projeto clone do ifood",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tayr0ne/ifood_clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tayr0ne/ifood_clone/issues"
+  },
+  "homepage": "https://github.com/tayr0ne/ifood_clone#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3"
+  }
+}
