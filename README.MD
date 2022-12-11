@@ -1,5 +1,3 @@
-### Bugs
-Ao tentar usar o DropDow do menu do bootstrap apresenta o seguinte erro
-`
-    TypeError: i.createPopper is not a function
-`
+### Bugs Resolvido
+Ao perceber que no escript tinha muitas repetições,
+começei a fazer o teste uma a uma, e ao deixar duas scripts de <bootstrap.bundle.min.js> e </popper.min.js>, o <Dropdown> funcionou. 
