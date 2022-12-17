@@ -1,15 +1,19 @@
+
 <html>
-<header>
+<head>
     <title>Formulario</title>
     <script src="../../controllers/formulario-controller.js"></script>
     <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="./index.css" rel="stylesheet" />
-</header>
+  
+</head>
 
 <body>
 
-    <form method="get" onsubmit="OnSubmit(this)">
+    <form method="get" onsubmit="validar()" id="form-adiciona">
+       
         <div class="container margin-top100">
+           
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">@</span>
                 <input type="text" class="form-control" placeholder="Digite seu nome" name="name">
@@ -28,15 +32,12 @@
             <div class="input-group mb-3">
                 <input type="date" class="form-control" name="date" placeholder="Digite sua data de aniversario">
             </div>
-
-            <div class="row">
-                <div class="col ItemCenter margin-top15">
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </div>
+            <div class="botao">
+              <button type="submit" id="enviar">Enviar</button>
             </div>
         </div>
     </form>
-
+    
 </body>
 
 </html>

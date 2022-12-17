@@ -10,7 +10,7 @@ Solucionado por Jesse o grande!!
 
 2° ao clicar em enviar é necessario criar uma função para capturar os dados do formulario
 
-3° ao conseguir capturar os cados do formulario os mesmos dados deveram ser apresentado no console do navegador utilizando o comando console.log
+3° ao conseguir capturar os dados do formulario os mesmos dados deveram ser apresentado no console do navegador utilizando o comando console.log
 
 4° a data devera ser apresentada no padrão brasileiro separada por /
 
@@ -23,4 +23,5 @@ Solucionado por Jesse o grande!!
     email: tayrone@thrower.com.br,
     date: 25/07/1995
 }
-`
+
+
