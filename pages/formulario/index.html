@@ -1,0 +1,42 @@
+<html>
+<header>
+    <title>Formulario</title>
+    <script src="../../controllers/formulario-controller.js"></script>
+    <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="./index.css" rel="stylesheet" />
+</header>
+
+<body>
+
+    <form method="get" onsubmit="OnSubmit(event)"id="Formulario">
+        <div class="container margin-top100">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input type="text" class="form-control" placeholder="Digite seu nome" name="name">
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="password" class="form-control" name="password" placeholder="Digite sua  senha">
+                <span class="input-group-text">***</span>
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="email" class="form-control" name="email" placeholder="Digite seu E-mail">
+                <span class="input-group-text">@example.com</span>
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="date" class="form-control" name="date" placeholder="Digite sua data de aniversario">
+            </div>
+
+            <div class="row">
+                <div class="col ItemCenter margin-top15">
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</body>
+
+</html>
