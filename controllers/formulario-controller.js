@@ -1,8 +1,10 @@
-function validar() {
-    var form = document.querySelector('#form-adiciona');
-    var botao = document.querySelector('.botao');
+
+function validar(e) {
+    let form = document.querySelector('#form-adiciona');
+    let botao = document.querySelector('.botao');
     botao = addEventListener("click", event);
 
+    
     if ( botao = "click") {
          event.preventDefault();
             console.log("name:",form.name.value,",");
@@ -11,6 +13,6 @@ function validar() {
             console.log("date:",form.date.value.split('-').reverse().join('/'));
             return
  
-    }
+   }
 }
-   
+

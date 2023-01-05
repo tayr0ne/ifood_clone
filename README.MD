@@ -23,5 +23,33 @@ Solucionado por Jesse o grande!!
     email: tayrone@thrower.com.br,
     date: 25/07/1995
 }
+<<<<<<< HEAD
 
 
+=======
+`
+### 3° Bugs
+ CAIXA
+
+ >= $500 , -1,5% | pix, credito, debito, dinheiro
+ -2% | PIX
+ -5% | DINHEIRO
+ -0% | CREDITO
+ -0% | DEBITO
+
+
+FATURAMENTO LOJA
+1 - criar uma funcao do faturamento da loja
+2 - se o pagamento for:
+    -0% | DINHEIRO
+    -0% | PIX 
+    4,99 e -1,5% | CREDITO
+    2,99 e -1% | DEBITO
+
+3 - impostos a serem pagos
+    -6% | nota fiscal    
+
+!!lembrando o desconto da nota fiscal e obrigatorio independente do tipo de pagamento
+
+3 - o resultado final devera ser jogado no console log
+>>>>>>> ddef0522ae8d4e0a83cc1027b51226b64747c526
