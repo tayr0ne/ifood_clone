@@ -1,4 +1,5 @@
 
+
 function Desconto(tipo, valor) {
 
   const DescMaior500 = 1.5
