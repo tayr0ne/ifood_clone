@@ -27,7 +27,7 @@ Solucionado por Jesse o grande!!
 ### 3° Bugs
  CAIXA
 
- >= $500 ,-1,5% | pix, credito, debito,  dinheiro
+ >= $500 , -1,5% | pix, credito, debito, dinheiro
  -2% | PIX
  -5% | DINHEIRO
  -0% | CREDITO
