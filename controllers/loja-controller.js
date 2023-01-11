@@ -8,12 +8,12 @@ function Desconto(tipo, valor) {
   const DescDin = 5
   const DescCred = 0
   const DescDeb = 0
-  
+
 
   if (tipo == 'pix') {
     valorFinal = valor - ((valor / 100) * DescPix)
   }
-  
+
   if (tipo == 'credito') {
     valorFinal = valor - ((valor / 100) * DescCred)
   }
@@ -38,36 +38,42 @@ function Desconto(tipo, valor) {
 }
 
 
-function faturamento(tipo) {
- 
+function faturamento(tipo, valor) {
+
+  //config
   const credito = 1.5
   const debito = 1
   const notafiscal = 6
-  const pix = 0
-  const dinheiro = 0
+  const descFixoCred = 4.99
+  const descFixoDeb = 2.99
+  const d = 100
   let lojafinal = valorFinal
-  
 
-  if (tipo == 'pix'){
-    lojafinal = valorFinal - ((valorFinal / 100) * notafiscal) - ((valorFinal / 100) * pix)
-   }
 
-  
-  if (tipo == 'credito'){
-   lojafinal = valorFinal - 4.99 - ((valorFinal / 100) * credito) - ((valorFinal / 100) * notafiscal)
+  if (tipo == 'pix') {
+    lojafinal = valor
   }
 
-  if (tipo == 'debito'){
-    lojafinal = valorFinal - 2.99 - ((valorFinal / 100) * debito) - ((valorFinal / 100) * notafiscal)
-   }
-   
-   if (tipo == 'dinheiro'){
-    lojafinal = valorFinal - ((valorFinal / 100) * notafiscal) - ((valorFinal / 100) * dinheiro)
-   }
+  if (tipo == 'dinheiro') {
+    lojafinal = valor
+  }
+
+  if (tipo == 'credito') {
+    lojafinal = (valor - (((valor / d) * credito)) - descFixoCred)
+  }
+
+  if (tipo == 'debito') {
+    lojafinal = (valor - (((valor / d) * debito)) - descFixoDeb)
+  }
+
+
+  lojafinal = lojafinal - ((valor / d) * notafiscal) //desc nota
+
+
 
   return lojafinal
 
-  }
+}
 
 
 function OnSubmit(event) {
@@ -75,17 +81,17 @@ function OnSubmit(event) {
 
   let values = {}
 
- 
+
   for (input of event.target) {
     values[input.name] = input.value
   }
 
-  let valorFinal = Desconto(values.tipoPagamento, values.valor).toLocaleString('pt-BR',{style:'currency', currency:'BRL'}) // usei esse metodo q converte e arredonda o numero para uma string no formato da moeda q queremos, no caso foi a moeada real.//
-  let lojafinal = faturamento(values.tipoPagamento, values.valor).toLocaleString('pt-BR',{style:'currency', currency:'BRL'})
+  let valorFinal = Desconto(values.tipoPagamento, values.valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) // usei esse metodo q converte e arredonda o numero para uma string no formato da moeda q queremos, no caso foi a moeada real.//
+  let lojafinal = faturamento(values.tipoPagamento, values.valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
 
-  
-  console.log('valor da compra:',valorFinal)
-  console.log('Faturamento loja:',lojafinal)
+
+  console.log('valor da compra:', valorFinal)
+  console.log('Faturamento loja:', lojafinal)
 }
 
 
