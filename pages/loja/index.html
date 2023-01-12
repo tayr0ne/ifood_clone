@@ -14,8 +14,13 @@
                 <input type="number" class="form-control" placeholder="Valor" name="valor">
             </div>
 
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">P</span>
+                <input type="text" class="form-control" placeholder="Produto" name="produto">
+            </div>
+
             <div class="form-floating">
-                <select class="form-select" name="tipoPagamento">
+                <select class="form-select" name="tipoPagamento" id="tipoPagamento">
                     <option selected>Selecione</option>
                     <option value="pix">Pix</option>
                     <option value="credito">Credito</option>
@@ -27,7 +32,11 @@
 
             <div class="row">
                 <div class="col ItemCenter margin-top15">
-                    <button type="submit" class="btn btn-primary">Enviar</button>
+                    <button type="submit" class="btn btn-primary">Scan</button>
+                </div>
+
+                <div class="col ItemCenter margin-top15">
+                    <button type="button" onclick="fechamento()" class="btn btn-primary">Fechar Compra</button>
                 </div>
             </div>
         </div>

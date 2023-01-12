@@ -80,18 +80,34 @@ function OnSubmit(event) {
   event.preventDefault()
 
   let values = {}
-
+  let produtos = localStorage.getItem('produtos')
 
   for (input of event.target) {
     values[input.name] = input.value
   }
 
-  let valorFinal = Desconto(values.tipoPagamento, values.valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) // usei esse metodo q converte e arredonda o numero para uma string no formato da moeda q queremos, no caso foi a moeada real.//
-  let lojafinal = faturamento(values.tipoPagamento, values.valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+  if (produtos) {
+    let strToObj = JSON.parse(produtos)
+    strToObj.push({ "produto": values.produto, "valor": values.valor })
+    localStorage.setItem('produtos', JSON.stringify(strToObj))
+  } else {
+    localStorage.setItem('produtos', JSON.stringify([{ "produto": values.produto, "valor": values.valor }]))
+  }
+}
+
+function fechamento() {
+  let produtos = localStorage.getItem('produtos')
+  let tipoPagamento = document.querySelector('#tipoPagamento').value
+
+  if(tipoPagamento === 'Selecione'){
+    alert("Escolha um metodo de pagamento!!")
+  }
+
+  
+  // let valorFinal = Desconto(values.tipoPagamento, values.valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) // usei esse metodo q converte e arredonda o numero para uma string no formato da moeda q queremos, no caso foi a moeada real.//
+  // let lojafinal = faturamento(values.tipoPagamento, values.valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
 
 
-  console.log('valor da compra:', valorFinal)
-  console.log('Faturamento loja:', lojafinal)
 }
 
 
