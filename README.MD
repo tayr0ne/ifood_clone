@@ -69,7 +69,10 @@ FATURAMENTO LOJA
 
 fiquem aberto a criatividade de voces para desenhar a nota
 
-## dica!!
+##### dica!!
 para fazero calculo dos valores, pode utilizar o metodo for para varrer o objeto!
+
+##### por ultimo
+apos ser feito todo os calculos e o fechamento ser finalizado o localStorange precisa ser limpo para uma nova passagem de compras
 
 
