@@ -1,5 +1,5 @@
 
-let valorFinal = 0  /* tirei essa variavel de dentro da função para o escopo global e consegui chamar ela na outra função do faturamento da loja */
+ /* tirei essa variavel de dentro da função para o escopo global e consegui chamar ela na outra função do faturamento da loja */
 
 function Desconto(tipo, valor) {
 
@@ -8,6 +8,7 @@ function Desconto(tipo, valor) {
   const DescDin = 5
   const DescCred = 0
   const DescDeb = 0
+  let valorFinal = 0 
   
 
   if (tipo == 'pix') {
@@ -38,7 +39,7 @@ function Desconto(tipo, valor) {
 }
 
 
-function faturamento(tipo) {
+function faturamento(tipo, valorFinal) {
  
   const credito = 1.5
   const debito = 1
