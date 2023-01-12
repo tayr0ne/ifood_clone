@@ -51,7 +51,7 @@ FATURAMENTO LOJA
 
 
 
-### 3° feature
+### 4° feature
 
 1 - calcular todos os valores do localStorange 
 2 - reorganizar os metodos da exercicio 2 que é Desconto() e faturamento()
