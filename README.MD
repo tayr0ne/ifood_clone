@@ -10,7 +10,7 @@ Solucionado por Jesse o grande!!
 
 2° ao clicar em enviar é necessario criar uma função para capturar os dados do formulario
 
-3° ao conseguir capturar os cados do formulario os mesmos dados deveram ser apresentado no console do navegador utilizando o comando console.log
+3° ao conseguir capturar os dados do formulario os mesmos dados deveram ser apresentado no console do navegador utilizando o comando console.log
 
 4° a data devera ser apresentada no padrão brasileiro separada por /
 
@@ -48,3 +48,31 @@ FATURAMENTO LOJA
 !!lembrando o desconto da nota fiscal e obrigatorio independente do tipo de pagamento
 
 3 - o resultado final devera ser jogado no console log
+
+
+
+### 4° feature
+
+1 - calcular todos os valores do localStorange 
+2 - reorganizar os metodos da exercicio 2 que é Desconto() e faturamento()
+3 - exibir para  o usuario a  nota fiscal
+
+ exemplo : 
+| Cod | Produto | valor
+| 1   | blusa   | 150
+|
+|
+| tipo pagamento: pix ou dinheiro  etc...
+|
+| valor final sem desc : 150
+| valor final om desc: 100
+
+fiquem aberto a criatividade de voces para desenhar a nota
+
+##### dica!!
+para fazero calculo dos valores, pode utilizar o metodo for para varrer o objeto!
+
+##### por ultimo
+apos ser feito todo os calculos e o fechamento ser finalizado o localStorange precisa ser limpo para uma nova passagem de compras
+
+
