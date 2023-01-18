@@ -23,10 +23,6 @@ Solucionado por Jesse o grande!!
     email: tayrone@thrower.com.br,
     date: 25/07/1995
 }
-<<<<<<< HEAD
-
-
-=======
 `
 ### 3° Bugs
  CAIXA
@@ -52,4 +48,31 @@ FATURAMENTO LOJA
 !!lembrando o desconto da nota fiscal e obrigatorio independente do tipo de pagamento
 
 3 - o resultado final devera ser jogado no console log
->>>>>>> ddef0522ae8d4e0a83cc1027b51226b64747c526
+
+
+
+### 4° feature
+
+1 - calcular todos os valores do localStorange 
+2 - reorganizar os metodos da exercicio 2 que é Desconto() e faturamento()
+3 - exibir para  o usuario a  nota fiscal
+
+ exemplo : 
+| Cod | Produto | valor
+| 1   | blusa   | 150
+|
+|
+| tipo pagamento: pix ou dinheiro  etc...
+|
+| valor final sem desc : 150
+| valor final om desc: 100
+
+fiquem aberto a criatividade de voces para desenhar a nota
+
+##### dica!!
+para fazer o calculo dos valores, pode utilizar o metodo for para varrer o objeto!
+
+##### por ultimo
+apos ser feito todo os calculos e o fechamento ser finalizado o localStorange precisa ser limpo para uma nova passagem de compras
+
+

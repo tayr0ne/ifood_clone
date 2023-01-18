@@ -11,10 +11,12 @@ function Desconto(tipo, valor) {
   let valorFinal = 0 
   
 
+
+
   if (tipo == 'pix') {
     valorFinal = valor - ((valor / 100) * DescPix)
   }
-  
+
   if (tipo == 'credito') {
     valorFinal = valor - ((valor / 100) * DescCred)
   }
@@ -39,54 +41,102 @@ function Desconto(tipo, valor) {
 }
 
 
-function faturamento(tipo, valorFinal) {
+function faturamento(tipo, valor) {
  
   const credito = 1.5
   const debito = 1
   const notafiscal = 6
-  const pix = 0
-  const dinheiro = 0
+  const descFixoCred = 4.99
+  const descFixoDeb = 2.99
+  const d = 100
   let lojafinal = valorFinal
-  
 
-  if (tipo == 'pix'){
-    lojafinal = valorFinal - ((valorFinal / 100) * notafiscal) - ((valorFinal / 100) * pix)
-   }
 
-  
-  if (tipo == 'credito'){
-   lojafinal = valorFinal - 4.99 - ((valorFinal / 100) * credito) - ((valorFinal / 100) * notafiscal)
+  if (tipo == 'pix') {
+    lojafinal = valor
   }
 
-  if (tipo == 'debito'){
-    lojafinal = valorFinal - 2.99 - ((valorFinal / 100) * debito) - ((valorFinal / 100) * notafiscal)
-   }
-   
-   if (tipo == 'dinheiro'){
-    lojafinal = valorFinal - ((valorFinal / 100) * notafiscal) - ((valorFinal / 100) * dinheiro)
-   }
+  if (tipo == 'dinheiro') {
+    lojafinal = valor
+  }
+
+  if (tipo == 'credito') {
+    lojafinal = (valor - (((valor / d) * credito)) - descFixoCred)
+  }
+
+  if (tipo == 'debito') {
+    lojafinal = (valor - (((valor / d) * debito)) - descFixoDeb)
+  }
+
+
+  lojafinal = lojafinal - ((valor / d) * notafiscal) //desc nota
+
+
 
   return lojafinal
 
-  }
+}
 
 
 function OnSubmit(event) {
   event.preventDefault()
 
   let values = {}
+  let produtos = localStorage.getItem('produtos')
 
- 
   for (input of event.target) {
     values[input.name] = input.value
   }
 
-  let valorFinal = Desconto(values.tipoPagamento, values.valor).toLocaleString('pt-BR',{style:'currency', currency:'BRL'}) // usei esse metodo q converte e arredonda o numero para uma string no formato da moeda q queremos, no caso foi a moeada real.//
-  let lojafinal = faturamento(values.tipoPagamento, values.valor).toLocaleString('pt-BR',{style:'currency', currency:'BRL'})
+  if (produtos) {
+    let strToObj = JSON.parse(produtos)
+    strToObj.push ({ "produto": values.produto, "valor": values.valor }) 
+    localStorage.setItem('produtos', JSON.stringify(strToObj))
+  } else {
+    localStorage.setItem('produtos', JSON.stringify([{ "produto": values.produto, "valor": values.valor }]))
+  }
+}
 
+function fechamento() {
   
-  console.log('valor da compra:',valorFinal)
-  console.log('Faturamento loja:',lojafinal)
+  let produtos = localStorage.getItem('produtos')
+  let tipoPagamento = document.querySelector('#tipoPagamento').value
+  let teste = [10, 10, 20]
+  let soma = 0
+
+
+  // for ( calc of produtos ) {
+  //   calc = calc + produtos.valor
+
+
+        
+  // }
+
+
+  // dando certo!!
+  // for (t of teste){
+    
+  //   calc += t
+    
+  // }
+  
+  for (var i = 0; i < produtos.length; i++){
+    soma += produtos[i];
+ }
+  
+
+
+  if(tipoPagamento === 'Selecione'){
+    alert("Escolha um metodo de pagamento!!")
+  }
+ 
+  console.log(soma)
+ 
+  
+  // let valorFinal = Desconto(values.tipoPagamento, values.valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) // usei esse metodo q converte e arredonda o numero para uma string no formato da moeda q queremos, no caso foi a moeada real.//
+  // let lojafinal = faturamento(values.tipoPagamento, values.valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+
+
 }
 
 
