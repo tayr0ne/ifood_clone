@@ -1,5 +1,45 @@
 
- /* tirei essa variavel de dentro da função para o escopo global e consegui chamar ela na outra função do faturamento da loja */
+/* tirei essa variavel de dentro da função para o escopo global e consegui chamar ela na outra função do faturamento da loja */
+
+function checTamCod(cod) {
+  const codTamanho = 15
+  const s = ' '
+  let sf = cod
+
+  do {
+    sf = sf + s
+
+  } while (sf.length < codTamanho);
+
+  return sf
+}
+
+function checTamProd(cod) {
+  const ProdTamanh = 15
+  const s = ' '
+  let sf = cod
+
+  do {
+    sf = sf + s
+
+  } while (sf.length < ProdTamanh);
+
+  return sf
+}
+
+
+function checTamVal(cod) {
+  const Valor = 10
+  const s = ' '
+  let sf = cod
+
+  do {
+    sf = sf + s
+
+  } while (sf.length < Valor);
+
+  return sf
+}
 
 function Desconto(tipo, valor) {
 
@@ -8,8 +48,8 @@ function Desconto(tipo, valor) {
   const DescDin = 5
   const DescCred = 0
   const DescDeb = 0
-  let valorFinal = 0 
-  
+  let valorFinal = 0
+
 
 
 
@@ -42,14 +82,14 @@ function Desconto(tipo, valor) {
 
 
 function faturamento(tipo, valor) {
- 
+
   const credito = 1.5
   const debito = 1
   const notafiscal = 6
   const descFixoCred = 4.99
   const descFixoDeb = 2.99
   const d = 100
-  let lojafinal = valorFinal
+  let lojafinal = 0
 
 
   if (tipo == 'pix') {
@@ -77,6 +117,9 @@ function faturamento(tipo, valor) {
 
 }
 
+function dinheiro(valor) {
+  return Number(valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+}
 
 function OnSubmit(event) {
   event.preventDefault()
@@ -90,51 +133,44 @@ function OnSubmit(event) {
 
   if (produtos) {
     let strToObj = JSON.parse(produtos)
-    strToObj.push ({ "produto": values.produto, "valor": values.valor }) 
+    strToObj.push({ "produto": values.produto, "valor": values.valor })
     localStorage.setItem('produtos', JSON.stringify(strToObj))
   } else {
     localStorage.setItem('produtos', JSON.stringify([{ "produto": values.produto, "valor": values.valor }]))
   }
 }
 
+
 function fechamento() {
-  
+
   let produtos = localStorage.getItem('produtos')
   let tipoPagamento = document.querySelector('#tipoPagamento').value
-  let teste = [10, 10, 20]
-  let soma = 0
 
+  const produtosParse = JSON.parse(produtos)
+  let somaValores = 0;
 
-  // for ( calc of produtos ) {
-  //   calc = calc + produtos.valor
-
-
-        
-  // }
-
-
-  // dando certo!!
-  // for (t of teste){
-    
-  //   calc += t
-    
-  // }
-  
-  for (var i = 0; i < produtos.length; i++){
-    soma += produtos[i];
- }
-  
-
-
-  if(tipoPagamento === 'Selecione'){
-    alert("Escolha um metodo de pagamento!!")
+  for (calc of produtosParse) {
+    somaValores = somaValores + Number(calc.valor)
   }
- 
-  console.log(soma)
- 
-  
-  // let valorFinal = Desconto(values.tipoPagamento, values.valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) // usei esse metodo q converte e arredonda o numero para uma string no formato da moeda q queremos, no caso foi a moeada real.//
-  // let lojafinal = faturamento(values.tipoPagamento, values.valor).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+
+  console.log(somaValores)
+  let valorFinal = Desconto(tipoPagamento, somaValores).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) // usei esse metodo q converte e arredonda o numero para uma string no formato da moeda q queremos, no caso foi a moeada real.//
+  let lojafinal = faturamento(tipoPagamento, somaValores).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
+
+
+  console.log('Desconto Cliente: ', valorFinal)
+  console.log('Faturamento Loja: ', lojafinal)
+
+  console.log('\n\n\n')
+  console.log('############################################')
+  console.log(`#     Cod       |    Produto    |   Valor  #`)
+  for (calc of produtosParse) {
+    console.log(`#${checTamCod('1')}|${checTamProd(calc.produto)}|${checTamVal(dinheiro(calc.valor))}#`)
+  }
+  console.log("#", '\n')
+  console.log(`# Valor da compra: ${dinheiro(somaValores)} `)
+  console.log('############################################')
+
 
 
 }
